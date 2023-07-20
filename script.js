@@ -18,13 +18,25 @@ function getComputerChoice() {
 function play(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
-    let playerChoiceValue, computerChoiceValue;
 
-    //if()
-    if(playerSelection === computerSelection) {
+    // gets integer representation of the selection
+    let playerChoiceValue = getChoiceValue(playerSelection);
+    let computerChoiceValue = getChoiceValue(computerSelection);
+
+    result = playerChoiceValue - computerChoiceValue;
+    
+    if(result === 0) {
         return `Tie! Both of you chose ${playerSelection}`;
     }
-    else if(playerSelection === "rock" && computer)
+    else if(result === 1 || result === -2) {
+        return `You win! ${playerSelection} beats ${computerSelection}`;
+    }
+    else if(result === -1 || result === 2) {
+        return `You lose! ${computerSelection} beats ${playerSelection}`;
+    }
+    else {
+        return "Invalid choice!";
+    }
 }
 
 function getChoiceValue(str) {
@@ -37,6 +49,9 @@ function getChoiceValue(str) {
     }
     else if(str === "scissors") {
         return 1;
+    }
+    else {
+        return -10;
     }
 }
 console.log(getComputerChoice());
