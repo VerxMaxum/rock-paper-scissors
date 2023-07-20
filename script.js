@@ -54,4 +54,36 @@ function getChoiceValue(str) {
         return -10;
     }
 }
-console.log(getComputerChoice());
+
+function game() {
+    playerWin = 0;
+    computerWin = 0;
+    for(let i = 1; i <= 5; i++) {
+        playerChoice = prompt("Rock, paper, or scissors?");
+        computerChoice = getComputerChoice();
+        message = play(playerChoice, computerChoice);
+
+        winOrLose = message.charAt(4);
+
+        if(winOrLose === 'w') {
+            playerWin++;
+        }
+        else if(winOrLose === 'l') {
+            computerWin++;
+        }
+
+        console.log(message);
+    }
+
+    if(playerWin > computerWin) {
+        console.log("You won more rounds than the computer!");
+    }
+    else if(computerWin > playerWin){
+        console.log("The computer won more rounds than you.");
+    }
+    else {
+        console.log("It's really a tie...")
+    }
+}
+
+game();
