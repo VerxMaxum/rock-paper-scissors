@@ -1,21 +1,29 @@
+const choices = Array.from(document.getElementsByClassName('choice'));
+
+function play(){
+    choices.forEach(choice => {
+        choice.addEventListener('click', getPlayerChoice);
+    });
+}
+
 function getComputerChoice() {
     randNum = Math.floor(Math.random() * 100);
     randNum = Math.ceil(randNum / 33);
     choice = "none";
     if(randNum === 1) {
-        choice = "rock";
+        choice = "Rock";
     }
     else if(randNum === 2) {
-        choice = "paper";
+        choice = "Paper";
     }
     else if(randNum === 3) {
-        choice = "scissors";
+        choice = "Scissors";
     }
     // console.log(randNum);
     return choice;
 }
 
-function play(playerSelection, computerSelection) {
+function play2(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
 
@@ -41,13 +49,13 @@ function play(playerSelection, computerSelection) {
 
 function getChoiceValue(str) {
     str = str.toLowerCase();
-    if(str === "rock") {
+    if(str === "Rock") {
         return -1;
     }
-    else if(str === "paper") {
+    else if(str === "Paper") {
         return 0;
     }
-    else if(str === "scissors") {
+    else if(str === "Scissors") {
         return 1;
     }
     else {
@@ -55,35 +63,11 @@ function getChoiceValue(str) {
     }
 }
 
-function game() {
-    playerWin = 0;
-    computerWin = 0;
-    for(let i = 1; i <= 5; i++) {
-        playerChoice = prompt("Rock, paper, or scissors?");
-        computerChoice = getComputerChoice();
-        message = play(playerChoice, computerChoice);
-
-        winOrLose = message.charAt(4);
-
-        if(winOrLose === 'w') {
-            playerWin++;
-        }
-        else if(winOrLose === 'l') {
-            computerWin++;
-        }
-
-        console.log(message);
-    }
-
-    if(playerWin > computerWin) {
-        console.log("You won more rounds than the computer!");
-    }
-    else if(computerWin > playerWin){
-        console.log("The computer won more rounds than you.");
-    }
-    else {
-        console.log("It's really a tie...")
-    }
+function getPlayerChoice(e) {
+    const choice = e.target.id;
+    console.log(choice);
 }
-
-game();
+play();
+// document.getElementById('rock').addEventListener('click', getPlayerChoice);
+// document.getElementById('paper').addEventListener('click', getPlayerChoice);
+// document.getElementById('scissors').addEventListener('click', getPlayerChoice);
