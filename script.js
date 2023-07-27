@@ -24,7 +24,6 @@ function playRound(event) {
     const displayedAnnouncement = document.getElementById('announcer-text');
 
     const result = playerChoice - computerChoice;
-
     if(result === 1 || result === -2) {
         displayedAnnouncement.textContent = "One point for you!";
         playerScore++;
@@ -33,19 +32,26 @@ function playRound(event) {
         displayedAnnouncement.textContent = "Wonk wonk wonk one point for the bot :(";
         computerScore++;
     }
-    else {
+    else if(result === 0){
         displayedAnnouncement.textContent = "It's a tie bro";
     }
-    
-    displayedPlayerScore.textContent = playerScore;
-    displayedComputerScore.textContent = computerScore;
 
     if(playerScore === 5 || computerScore === 5) {
+        if(playerScore > computerScore) {
+            displayedAnnouncement.textContent = "You won!";
+        }
+        else {
+            displayedAnnouncement.textContent = "You lose!";
+        }
         playerScore = 0;
         computerScore = 0;
         displayedPlayerScore.textContent = playerScore;
         displayedComputerScore.textContent = computerScore;
     }
+    
+    displayedPlayerScore.textContent = playerScore;
+    displayedComputerScore.textContent = computerScore;
+
 }
 
 choices.forEach(choice => {
