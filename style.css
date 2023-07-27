@@ -20,9 +20,18 @@ body {
 .choice {
     width: 200px;
     height: 75px;
+    background-color: rgb(252, 156, 47);
+    border: 5px solid rgb(187, 106, 1);
     font-size: 40px;
 }
 
 .player-score {
     font-size: 36px;
+}
+
+/*class for adding additional stuff to elements*/
+
+.pressed {
+    background-color: rgb(255, 199, 135);
+    border: 5px solid rgb(192, 127, 41);
 }
