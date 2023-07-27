@@ -21,10 +21,21 @@ function playRound(event) {
     const displayedPlayerScore = document.getElementById('human-point');
     const displayedComputerScore = document.getElementById('computer-point');
 
+    const displayedAnnouncement = document.getElementById('announcer-text');
+
     const result = playerChoice - computerChoice;
 
-    if(result === 1 || result === -2) playerScore++;
-    else if(result === -1 || result === 2) computerScore++;
+    if(result === 1 || result === -2) {
+        displayedAnnouncement.textContent = "One point for you!";
+        playerScore++;
+    }
+    else if(result === -1 || result === 2) {
+        displayedAnnouncement.textContent = "Wonk wonk wonk one point for the bot :(";
+        computerScore++;
+    }
+    else {
+        displayedAnnouncement.textContent = "It's a tie bro";
+    }
     
     displayedPlayerScore.textContent = playerScore;
     displayedComputerScore.textContent = computerScore;
