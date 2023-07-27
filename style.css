@@ -13,6 +13,7 @@ body {
 
 .scoreboard {
     display: flex;
+    height: 200px;
     justify-content: space-around;
     align-items: center;
 }
@@ -27,6 +28,14 @@ body {
 
 .player-score {
     font-size: 36px;
+}
+
+.announcer {
+    display: flex;
+    height: 125px;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
 }
 
 /*class for adding additional stuff to elements*/
